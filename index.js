@@ -9,6 +9,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('dist'));
 
+app.get('*', function(req, res) {
+  res.sendFile('index.html', { root: __dirname })
+})
+
 app.use(morgan((tokens, req, res) => {
   return [
     tokens.method(req, res),
@@ -19,6 +23,8 @@ app.use(morgan((tokens, req, res) => {
     JSON.stringify(req.body)
   ].join(' ');
 }));
+
+
 //info page
 app.get('/info', (request, response) => {
   const currentDate = new Date().toLocaleString();
