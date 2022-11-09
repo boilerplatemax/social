@@ -1,0 +1,100 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+*,*::after,*::before{
+  padding: 0;
+  margin: 0;
+}
+
+#light,#light .loginpage{
+  background-color: whitesmoke;
+  color:rgb(41, 41, 65);
+
+
+}
+#dark,#dark .loginpage{
+  background-color: rgb(69, 69, 102);
+  color: whitesmoke;
+
+}
+#black{
+  background-color: black;
+  color: whitesmoke;
+}
+
+#dark .link{
+  color: whitesmoke;
+}
+
+#light .link{
+  color:rgb(41, 41, 65);
+}
+.theme-transition{
+  transition-property: all;
+  transition-duration: .5s;
+  transition-timing-function: ease-in-out;
+}
+
+#dark .card{
+  background-color: rgb(79, 79, 109);
+  color: whitesmoke;
+  box-shadow: 0 0 6px rgb(22, 22, 34);
+  clip-path: inset(2px -5px -5px 2px);
+
+}
+#light .card{
+  background-color: whitesmoke;
+  color:rgb(41, 41, 65);
+  box-shadow: 0 0 6px rgb(173, 173, 173);
+  clip-path: inset(2px -5px -5px 2px);
+}
+#dark .sidebar{
+  box-shadow: 0 0 6px rgb(24, 24, 34);
+  clip-path: inset(2px -5px -5px 2px);
+  /* outline: 1px solid rgb(66, 66, 97); */
+}
+#light .sidebar{
+  box-shadow: 0 0 6px rgb(173, 173, 173);
+  clip-path: inset(2px -5px -5px 2px);
+  /* outline: 1px solid rgb(190, 190, 190); */
+}
+#dark .nav-link.active{
+  color:whitesmoke!important;
+  
+}
+#light .nav-link.active{
+  color:rgb(41, 41, 65)!important;
+}
+#dark .postform__form{
+  box-shadow: 5px 5px 6px rgb(24, 24, 34);
+  outline: 1px solid rgb(66, 66, 97);
+}
+#light .postform__form{
+  box-shadow: 2px 2px 6px rgb(173, 173, 173);
+  outline: 1px solid rgb(190, 190, 190);
+}
+.nav-link{
+  border:none!important;
+  border-radius: 10px!important;
+}
+.nav-link.active{
+  text-decoration: underline;
+}
+#light .nav-link{
+  background-color: transparent!important;
+  color:rgb(69, 69, 102)!important;
+}
+
+#dark .nav-link{
+  background-color:transparent!important;
+  color:whitesmoke!important;
+}
+#light .navigation{
+  background-color:whitesmoke!important;
+}
+#dark .navigation{
+  background-color:rgb(69, 69, 102)!important;
+}
