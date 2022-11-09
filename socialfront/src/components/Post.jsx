@@ -16,7 +16,7 @@ const likeHandler = () =>{
       <Row>
         <Col xs={3}>
           <div className='post__profile-photo-container'>
-          <img src={`${post.mood}`} className='post__profile-photo'/>
+          <img src={post.mood} className='post__profile-photo'/>
           </div></Col>
     
     <Col>

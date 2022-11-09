@@ -9,8 +9,9 @@ import Navigation from './components/Navigation'
 import LoginPage from './pages/LoginPage';
 import Content from './components/Content';
 
-import {icons} from './services/IconImages'
 import blogService from './services/BlogService'
+import {icons} from './services/IconImages'
+
 export const SocialContext = createContext(null)
 
 function App() {
@@ -70,30 +71,30 @@ function App() {
     let imgNum=1
     console.log(mood)
     switch(mood){
-      case "Joyful":imgNum=Math.floor(Math.random() * 4) + 1
+      case "Joyful":imgNum=Math.floor(Math.random() * 4) + 0
       break;
-      case"Upset":imgNum=Math.floor(Math.random() * 4) + 5
+      case"Upset":imgNum=Math.floor(Math.random() * 4) + 4
       break;
-      case "Shocked":imgNum=Math.floor(Math.random() * 2) + 9
+      case "Shocked":imgNum=Math.floor(Math.random() * 2) + 8
       break;
-      case"Secretive":imgNum=Math.floor(Math.random() * 3) + 11
+      case"Secretive":imgNum=Math.floor(Math.random() * 3) + 10
       break;
-      case "Fabulous":imgNum=Math.floor(Math.random() * 2) + 14
+      case "Fabulous":imgNum=Math.floor(Math.random() * 2) + 13
       break;
-      case"Evil":imgNum=Math.floor(Math.random() * 4) + 16
+      case"Evil":imgNum=Math.floor(Math.random() * 4) + 15
       break;
-      case "Flex":imgNum=Math.floor(Math.random() * 2) + 20
+      case "Flex":imgNum=Math.floor(Math.random() * 2) + 19
       break;
-      case"Stupid":imgNum=Math.floor(Math.random() * 2) + 22
+      case"Stupid":imgNum=Math.floor(Math.random() * 2) + 21
       break;
-      default:imgNum=24
+      default:imgNum=23
       break;
     }
 
     const newPost = {
       name:userName,
       message:postMessage,
-      mood:`/src/assets/icons/icon (${imgNum}).png`,
+      mood:icons[imgNum],
       date:new Date().toLocaleDateString()  
     }
     {console.log(newPost.mood)}
