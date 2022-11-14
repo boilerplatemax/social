@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import { SocialContext } from '../App';
 import { Link } from 'react-router-dom'
-
-
 import Form from 'react-bootstrap/Form';
 
 export default function Sidebar() {
@@ -19,7 +17,6 @@ export default function Sidebar() {
           className='nav__theme-toggle'
           type="switch"
           id="custom-switch"
-
           // label={`${socialContext.theme} View`}
         />
       </Form>{}

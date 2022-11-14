@@ -11,15 +11,14 @@ import Content from './components/Content';
 
 import blogService from './services/BlogService'
 import {icons} from './services/IconImages'
+import { sanitizeFilter, set } from 'mongoose';
 
 export const SocialContext = createContext(null)
 
 function App() {
   const [theme,setTheme]=useState("light")
   const [blogs, setBlogs] = useState([])
-  const [searchFilters, setSearchFilters] = useState('')
-  const [message, setMessage] = useState(null)
-  const blogInfo = useRef({name:'',message:''})
+  const [filterType, setFilterType]=useState([])
   const [userName, setUserName]=useState('')
     
   const storedThemeVariant = localStorage.getItem('SOCIAL_THEME')
@@ -46,22 +45,6 @@ function App() {
       setBlogs(response.reverse())
     })
   }
-  const getNameFromId=(id)=>{
-    const filteredBlog = blogs.filter(blog => blog.id === id)
-    return filteredBlog[0].name
-  }
-  // const removeHandler=id=>{
-  //   const blogName = getNameFromId(id)
-  //   blogService.remove(id)
-  //   .then(response=>{
-  //     sendMessage(`${blogName} was removed from contacts`)
-  //     const filteredBlogs=blogs.filter(blog=>blog.id!==id)
-  //     setBlogs(filteredBlogs)
-  //   })
-  //   .catch(error=>{
-  //     sendMessage(`[ERROR] User not found`)
-  //   })
-  // }
   const signOutHandler=()=>{
     localStorage.removeItem("SOCIAL_USERNAME")
     setUserName(null)
@@ -111,29 +94,19 @@ function App() {
     document.getElementById('postForm').reset()
     refreshBlogs()
   }
-  const filterHandler = e =>{
-    const filter = e.target.value
-    setSearchFilters(filter)
-  }
-  const updateHandler = (id,newInfo) =>{
-    const blogName=getNameFromId(id)
-    blogService.update(id,newInfo)
-    .then(response=>{
-      sendMessage(`${blogName} was successfully updated`)
-      setBlogs(response)
-    })
-    .catch(error=>{
-      console.log(error)
-      const blogName=getNameFromId(id)
 
-      sendMessage(`[ERROR] ${error.response.data.error}`)
-    })
-    
-  }
-  const blogsToShow = searchFilters===''?blogs:blogs.filter(blog=>(blog.name.toLowerCase()).includes(searchFilters.toLowerCase()))
+  const blogsToShow = filterType!='date-oldest'?blogs:[...blogs].reverse();
 
   const toggleTheme = ()=>{
     setTheme(cur=>cur==="light"?"dark":"light")
+  }
+
+  const blogFilter = (e, filter) =>{
+    e.preventDefault()
+    console.log(filter)
+    if(filter==='date-oldest'||filter==='date-newest')setFilterType(filter)
+    
+    
   }
   return (
     
@@ -143,6 +116,7 @@ function App() {
       blogsToShow,
       setUserName,
       submitHandler,
+      blogFilter,
       signOutHandler
       }}>
       <BrowserRouter>

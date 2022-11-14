@@ -27,7 +27,7 @@ export default function PostForm() {
         <option value='Smart'>Smart</option>
       </Form.Select>
     
-    {message.length<=0||message.length>256||mood===''?
+    {message.length<=0||message.length>256||mood===(''||'Select Mood')?
     <Button disabled>Post</Button>:
     <Button type="submit" className='float-end'>Post</Button>
     }

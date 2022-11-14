@@ -31,7 +31,7 @@ export default function LoginPage({setUserName}) {
                 <Col md={12} xl={{span:6}}>
                 <div className= 'mt-5'>
                     <h1 className='loginpage__title'>Welcome Human!</h1>
-                    <p></p>
+                    <p>Social media clone by Max Shapovalov</p>
                 </div>
                 
                 </Col>
@@ -46,9 +46,9 @@ export default function LoginPage({setUserName}) {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Username</Form.Label>
                         <Form.Control type="text" placeholder="Username" name="username" onChange={e=>setName(e.target.value)}/>
-                        <Form.Text className="text-muted">
+                        <p>
                         This is the name others will see you as.
-                        </Form.Text>
+                        </p>
                     </Form.Group>
 
 
